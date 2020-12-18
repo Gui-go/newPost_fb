@@ -39,6 +39,10 @@ class NewPost:
         sleep(3)
         self.minding.send_keys(msg)
         sleep(1)
+        self.send = self.browser.find_element_by_xpath("/html/body/div[1]/div/div[1]/div[1]/div[4]/div/div[2]/div[1]/div/div[2]/div/div/div/form/div/div[1]/div/div/div[3]/div[2]/div")
+        sleep(1)
+        self.send.click()
+        sleep(2)
 
     def run(self, msg):
         """ Runs the methods in the right order
