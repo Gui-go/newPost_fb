@@ -1,7 +1,7 @@
+#! Python3
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from time import sleep
-import yaml
 
 
 class NewPost:
@@ -11,18 +11,21 @@ class NewPost:
         """
         self.browser  = webdriver.Firefox()
         self.browser.get("http://www.facebook.com")
-        self.user = user
-        self.passwd = passwd
+        self.__user = user
+        self.__passwd = passwd
         self.username = self.browser.find_element_by_id("email")
         self.password = self.browser.find_element_by_id("pass")
         self.submit   = self.browser.find_element_by_id("u_0_b")
+
+    def __str__(self):
+        return "Class to post sentences on Facebook"
 
     def insertCredential(self):
         """ Inserts the credentials to get into the fb account
         Returns a browser logged into a fb account
         """
-        self.username.send_keys(self.user)
-        self.password.send_keys(self.passwd)
+        self.username.send_keys(self.__user)
+        self.password.send_keys(self.__passwd)
         self.submit.click()
         sleep(3)
 
